@@ -13,8 +13,6 @@ public:
                 count += (i.second/3);
             }
             else {
-                // i.second-=3;
-                // count++;
                 count += (i.second/3)+1;
             }
         }
