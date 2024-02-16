@@ -1,7 +1,13 @@
+static int speedup = []() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(0);
+	return 0;
+}();
 class Solution {
 public:
     int findLeastNumOfUniqueInts(vector<int>& arr, int k) {
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(auto i:arr){
             mp[i]++;
         }
