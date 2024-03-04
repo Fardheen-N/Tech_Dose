@@ -34,18 +34,21 @@ public:
     int bagOfTokensScore(vector<int>& tokens, int power) {
         SORT(tokens);
         int n = tokens.size();
-        VVI dp(n,VI(n,-1));
-        return solve(tokens,power,0,0,n-1,dp);
-    }
-    int solve(vector<int>& tokens,int power,int score,int i,int j,VVI &dp){
-        if(i>j) return score;
-        if(dp[i][j]!=-1) return dp[i][j];
-
-        int face_up = 0,face_down = 0,five_star=0;
-        if(power>=tokens[i]) face_up=solve(tokens,power-tokens[i],score+1,i+1,j,dp);
-        if(score>0) face_down=solve(tokens,power+tokens[j],score-1,i,j-1,dp);
-        five_star = solve(tokens,power,score,i,j-1,dp);
-
-        return dp[i][j]=max({face_up,face_down,five_star});
+        int res = 0;
+        int score = 0;
+        int i = 0,j=n-1;
+        while(i<=j){
+            if(power>=tokens[i]){
+                power-=tokens[i];
+                score++;i++;
+                res = max(score,res);
+            }else if(score>0){
+                power+=tokens[j];
+                score--;j--;
+            }else{
+                break;
+            }
+        }
+        return res;
     }
 };
