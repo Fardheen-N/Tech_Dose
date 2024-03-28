@@ -19,10 +19,4 @@ public:
         }
         return res;
     }
-    int check(map<int,int> &mp,int k){
-        for(auto [key,val]:mp){
-            if(val>k) return key;
-        }
-        return -1;
-    }
 };
