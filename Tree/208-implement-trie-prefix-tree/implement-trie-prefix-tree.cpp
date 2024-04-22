@@ -21,7 +21,7 @@ public:
         }
         temp -> isLeaf = true;
     }
-    
+
     bool search(string word) {
         TrieNode* temp = root;
         for(char c : word) {
