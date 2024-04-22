@@ -14,7 +14,6 @@ public:
     void flatten(TreeNode* root) {
         vector<TreeNode*> pre;
         save(pre,root);
-        // root = NULL;
         TreeNode *t = root;
         root = flat(pre,0);
     }
