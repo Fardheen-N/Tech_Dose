@@ -44,7 +44,7 @@ public:
     int n;
     NumArray(vector<int>& nums) {
         n = nums.size();
-        seg.resize(4*n+1);
+        seg.resize(4*n);
         build(nums,0,0,n-1);
     }
     
@@ -53,7 +53,6 @@ public:
     }
     
     int sumRange(int left, int right) {
-        int ans = query(0,0,n-1,left,right);
-        return ans;
+        return query(0,0,n-1,left,right);
     }
 };
