@@ -24,6 +24,12 @@ public:
 		}
         return 0;
 	}
+    void compress(int n){
+        for(int i=0;i<n;i++){
+            int tp =findUP(i);
+            tp =findUP(i);
+        }
+    }
 	void print_(){
 		for(auto i:parent) cout<<i<<" ";
 		cout<<endl;
@@ -44,10 +50,8 @@ public:
                 extra+=(alice.unionBySize(i[1]-1,i[2]-1) || bob.unionBySize(i[1]-1,i[2]-1));
             }
         }
-        for(int i=0;i<n;i++){
-            int tp = alice.findUP(i);
-            tp = bob.findUP(i);
-        }
+        alice.compress(n);
+        bob.compress(n);
         set<int> st;
         bool flag = 1;
         for(auto i:alice.parent) st.insert(i);
